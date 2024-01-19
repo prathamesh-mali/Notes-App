@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:popover/popover.dart';
 import 'package:notes_app/components/note_setting.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 
 class NoteTile extends StatelessWidget {
   final String text;
@@ -26,16 +27,21 @@ class NoteTile extends StatelessWidget {
         shape:
             ContinuousRectangleBorder(borderRadius: BorderRadius.circular(20)),
         trailing: Builder(
-          builder: (context) => IconButton(
-            icon: const Icon(Icons.more_vert),
-            onPressed: () => showPopover(
-              backgroundColor: Theme.of(context).focusColor,
-              height: 100,
-              width: 100,
-              context: context,
-              bodyBuilder: (context) => NoteSetting(
-                onEditTap: onEditPressed,
-                onDeleteTap: onDeletePressed,
+          builder: (context) => Animate(
+            effects: const [
+              SlideEffect(),
+            ],
+            child: IconButton(
+              icon: const Icon(Icons.more_vert),
+              onPressed: () => showPopover(
+                backgroundColor: Theme.of(context).focusColor,
+                height: 100,
+                width: 100,
+                context: context,
+                bodyBuilder: (context) => NoteSetting(
+                  onEditTap: onEditPressed,
+                  onDeleteTap: onDeletePressed,
+                ),
               ),
             ),
           ),

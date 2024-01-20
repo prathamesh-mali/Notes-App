@@ -1,5 +1,4 @@
 import "package:flutter/material.dart";
-import "package:flutter_animate/flutter_animate.dart";
 import "package:notes_app/components/drawer.dart";
 import "package:notes_app/components/note_tile.dart";
 import "package:notes_app/models/note.dart";
@@ -25,33 +24,32 @@ class _HomePageState extends State<HomePage> {
 
   void createNote() {
     showDialog(
-        context: context,
-        builder: (context) => AlertDialog.adaptive(
-                content: TextField(
-                  controller: _textController,
-                ),
-                actions: [
-                  MaterialButton(
-                    onPressed: () {
-                      if (_textController.text.isNotEmpty) {
-                        //add note to database
-                        context
-                            .read<NoteDatabase>()
-                            .addNote(_textController.text);
+      context: context,
+      builder: (context) => AlertDialog.adaptive(
+          content: TextField(
+            controller: _textController,
+          ),
+          actions: [
+            MaterialButton(
+              onPressed: () {
+                if (_textController.text.isNotEmpty) {
+                  //add note to database
+                  context.read<NoteDatabase>().addNote(_textController.text);
 
-                        //clear text field
-                        _textController.clear();
-                      } else {
-                        const ScaffoldMessenger(
-                          child: Text('Please enter some text'),
-                        );
-                      }
+                  //clear text field
+                  _textController.clear();
+                } else {
+                  const ScaffoldMessenger(
+                    child: Text('Please enter some text'),
+                  );
+                }
 
-                      Navigator.pop(context);
-                    },
-                    child: const Text("Create"),
-                  ),
-                ]));
+                Navigator.pop(context);
+              },
+              child: const Text("Create"),
+            ),
+          ]),
+    );
   }
 
   void readNote() {
@@ -88,6 +86,7 @@ class _HomePageState extends State<HomePage> {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
+        elevation: 5,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10),
         ),
@@ -131,37 +130,35 @@ class _HomePageState extends State<HomePage> {
   void deletenote(int id) {
     showDialog(
       context: context,
-      builder: (context) => Animate(
-        effects: const [FadeEffect()],
-        child: AlertDialog(
-          backgroundColor: Theme.of(context).colorScheme.background,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10),
-          ),
-          title: const Text('Delete Note'),
-          content: const Text('Are you sure you want to delete this note?'),
-          actions: [
-            //cancel button
-            MaterialButton(
-              onPressed: () {
-                //close dialog
-                Navigator.pop(context);
-              },
-              child: const Text('Cancel'),
-            ),
-            //delete button
-            MaterialButton(
-              onPressed: () {
-                //delete note from database
-                context.read<NoteDatabase>().deleteNote(id);
-
-                //close dialog
-                Navigator.pop(context);
-              },
-              child: const Text('Delete'),
-            ),
-          ],
+      builder: (context) => AlertDialog(
+        elevation: 5,
+        backgroundColor: Theme.of(context).colorScheme.background,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10),
         ),
+        title: const Text('Delete Note'),
+        content: const Text('Are you sure you want to delete this note?'),
+        actions: [
+          //cancel button
+          MaterialButton(
+            onPressed: () {
+              //close dialog
+              Navigator.pop(context);
+            },
+            child: const Text('Cancel'),
+          ),
+          //delete button
+          MaterialButton(
+            onPressed: () {
+              //delete note from database
+              context.read<NoteDatabase>().deleteNote(id);
+
+              //close dialog
+              Navigator.pop(context);
+            },
+            child: const Text('Delete'),
+          ),
+        ],
       ),
     );
   }

@@ -20,7 +20,10 @@ class _DrawerTileState extends State<DrawerTile> {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      title: Text(widget.title),
+      title: Text(
+        widget.title,
+        style: const TextStyle(fontFamily: 'Poppins'),
+      ),
       leading: widget.leading,
       onTap: widget.onTap,
     );

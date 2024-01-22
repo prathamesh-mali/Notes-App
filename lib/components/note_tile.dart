@@ -21,7 +21,10 @@ class NoteTile extends StatelessWidget {
         borderRadius: BorderRadius.circular(10),
       ),
       child: ListTile(
-        title: Text(text),
+        title: Text(
+          text,
+          style: const TextStyle(fontFamily: 'Poppins'),
+        ),
         tileColor: Theme.of(context).colorScheme.primary,
         shape:
             ContinuousRectangleBorder(borderRadius: BorderRadius.circular(20)),

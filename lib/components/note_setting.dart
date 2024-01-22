@@ -26,6 +26,7 @@ class NoteSetting extends StatelessWidget {
               child: Text(
                 'Edit',
                 style: TextStyle(
+                  fontFamily: 'Poppins',
                   color: Theme.of(context).colorScheme.inversePrimary,
                   fontWeight: FontWeight.bold,
                 ),

@@ -16,7 +16,7 @@ class _SettingsPageState extends State<SettingsPage> {
       backgroundColor: Theme.of(context).colorScheme.background,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
-        elevation: 0,
+        elevation: 5,
         foregroundColor: Theme.of(context).colorScheme.inversePrimary,
       ),
       body: Padding(
@@ -36,12 +36,13 @@ class _SettingsPageState extends State<SettingsPage> {
               //dark mode
               Text("Dark Mode",
                   style: TextStyle(
+                      fontFamily: 'Poppins',
                       color: Theme.of(context).colorScheme.inversePrimary,
                       fontSize: 20)),
 
               //switch
               Switch(
-                activeColor: Theme.of(context).colorScheme.inversePrimary,
+                activeColor: Colors.green,
                 value: Provider.of<ThemeProvider>(context, listen: false)
                     .isDarkMode,
                 onChanged: (value) {

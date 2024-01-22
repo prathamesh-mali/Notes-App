@@ -11,9 +11,12 @@ class CustomDrawer extends StatelessWidget {
       child: Column(
         children: [
           const Padding(
-            padding: EdgeInsets.all(100.0),
+            padding: EdgeInsets.all(80.0),
             child: SizedBox(
-              child: Icon(Icons.note),
+              child: Icon(
+                Icons.note,
+                size: 50.0,
+              ),
             ),
           ),
           DrawerTile(

@@ -26,11 +26,31 @@ class _HomePageState extends State<HomePage> {
     showDialog(
       context: context,
       builder: (context) => AlertDialog.adaptive(
-          content: TextField(
-            controller: _textController,
+          content: Padding(
+            padding: const EdgeInsets.only(top: 10.0, bottom: 0),
+            child: TextField(
+              showCursor: true,
+              decoration: InputDecoration(
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(12),
+                  borderSide: const BorderSide(
+                    width: 0,
+                    style: BorderStyle.none,
+                  ),
+                ),
+                filled: true,
+                fillColor: Theme.of(context).colorScheme.primary,
+                disabledBorder: InputBorder.none,
+              ),
+              controller: _textController,
+            ),
           ),
           actions: [
             MaterialButton(
+              color: Theme.of(context).colorScheme.primary,
+              shape: ContinuousRectangleBorder(
+                borderRadius: BorderRadius.circular(20.0),
+              ),
               onPressed: () {
                 if (_textController.text.isNotEmpty) {
                   //add note to database
@@ -46,7 +66,7 @@ class _HomePageState extends State<HomePage> {
 
                 Navigator.pop(context);
               },
-              child: const Text("Create"),
+              child: Text("Create"),
             ),
           ]),
     );
@@ -173,9 +193,11 @@ class _HomePageState extends State<HomePage> {
         toolbarHeight: 60,
         title: const Text(
           'Notes',
-          style: TextStyle(fontSize: 25, fontWeight: FontWeight.w400),
+          style: TextStyle(
+              fontFamily: 'Poppins', fontSize: 25, fontWeight: FontWeight.w400),
         ),
         centerTitle: true,
+        elevation: 5,
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: createNote,

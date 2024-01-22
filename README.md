@@ -1,11 +1,19 @@
-# notes_app
+# Notes App 
 
-A new Flutter project.
+A Simple Flutter App to learn about how Isar Database works.
 
-## Getting Started
+This App is built using <a href='https://isar.dev/'>Isar Database</a>.
+You can also build this application by using <a href='https://flutter.dev/'>Flutter</a>.
 
-This project is a starting point for a Flutter application.
+### Screenshots.
+<img src="Screenshots/whitemode.png" alt="ScreenShot1" width="200" height="400"> <img src="Screenshots/darkmode.png" alt="ScreenShot2" width="200" height="400">
+<img src="Screenshots/edit.png" alt="ScreenShot3" width="200" height="400"> <img src="Screenshots/drawer.png" alt="ScreenShot4" width="200" height="400">
 
+
+
+
+
+#### Resources
 A few resources to get you started if this is your first Flutter project:
 
 - [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
